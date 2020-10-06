@@ -1,233 +1,232 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box  ;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-body{
-background: black;
-color: white;
-text-align: center;
-overflow: hidden;
-
+body {
+  background: black;
+  color: white;
+  text-align: center;
+  overflow: hidden;
 }
 
-button{
-    background: black;
-    border: 2px white solid;
-    color:white;
-    border-radius: 10%;
-    font-size:1.25em;
-    width: 25vh;
-    height: 10vh;
-    display: inline;
-    margin: 0 auto;
-    position: relative;    
-    top: 50vh;
+button {
+  background: black;
+  border: 2px white solid;
+  color: white;
+  border-radius: 10%;
+  font-size: 1.25em;
+  width: 25vh;
+  height: 10vh;
+  display: inline;
+  margin: 0 auto;
+  position: relative;
+  top: 50vh;
 }
 
-.time{
-    font-size: 6em;
-    position: relative;
-    top: 20vh;
-    margin: 0 auto;
+.time {
+  font-size: 6em;
+  position: relative;
+  top: 20vh;
+  margin: 0 auto;
 }
-.buttonContainer{
-    position: relative;
-    bottom: 10vh;
-}
-
-.markText{
-    position: relative;
-    top: 45vh;
-    font-size: 2.5em;
+.buttonContainer {
+  position: relative;
+  bottom: 10vh;
 }
 
-.containerTwo{
-position:absolute;
-width: 50vh;
-height: 100vh;
-background: rgb(51, 51, 51);
-margin: 0;
-padding: 0s;
-top:0;
-transform: translate(-50vh);
-overflow: scroll;
-}
-.marks{
-    display: inline;
-    color: white;
-    float: left;
-    margin-left: 6vh;
-}
-.marksDifference{
-    display: inline;
-    color: white;
-    float: right;
-    margin-right:3vh;
+.markText {
+  position: relative;
+  top: 45vh;
+  font-size: 2.5em;
 }
 
-.scrollbarButton{
+.containerTwo {
+  position: absolute;
+  width: 50vh;
+  height: 100vh;
+  background: rgb(51, 51, 51);
+  margin: 0;
+  padding: 0s;
+  top: 0;
+  transform: translate(-50vh);
+  overflow: scroll;
+}
+.marks {
+  display: inline;
+  color: white;
+  float: left;
+  margin-left: 6vh;
+}
+.marksDifference {
+  display: inline;
+  color: white;
+  float: right;
+  margin-right: 3vh;
+}
+
+.scrollbarButton {
+  float: left;
+  width: 11vh;
+  height: 11vh;
+  border-radius: 100%;
+  position: absolute;
+  top: 1vh;
+  left: 3vh;
+}
+
+.scrollbarButtonTwo {
+  display: none;
+}
+
+.number {
+  float: left;
+  position: relative;
+  left: 1vh;
+}
+
+.marksTwo {
+  display: none;
+}
+
+.differenceTwo {
+  display: none;
+}
+
+.marksTextTwo {
+  display: none;
+  margin-top: 1vh;
+  position: relative;
+}
+
+.differenceTextTwo {
+  display: none;
+  margin-top: 1vh;
+}
+
+.numberCounter {
+  float: left;
+  margin-top: 5vh;
+  position: relative;
+  right: 1vh;
+}
+
+.numberTwo {
+  display: none;
+}
+
+.numberCounterTwo {
+  display: none;
+}
+
+@media (max-width: 1150px) {
+  .containerTwo {
+    display: none;
+  }
+
+  .scrollbarButton {
+    display: none;
+  }
+
+  .containerThree {
+    width: 100%;
+    height: 30vh;
+    background: rgb(51, 51, 51);
+    position: absolute;
+    bottom: 0;
+    transform: translateY(30vh);
+    overflow: scroll;
+  }
+
+  .scrollbarButtonTwo {
+    display: block;
     float: left;
     width: 11vh;
     height: 11vh;
-
     border-radius: 100%;
-    top: -25vh;
-}
-
-.scrollbarButtonTwo{
-display: none;
-
-}
-
-.number{
-   float: left;
-    position: relative;
-    left: 1vh;
-
-}
-
-.marksTwo{
-    display: none;
-}
-
-.differenceTwo{
-    display: none;
-}
-
-.marksTextTwo{
-    display: none;
-    margin-top:1vh;
-    position: relative;
-    
-}
-
-.differenceTextTwo{
-    display: none;
-    margin-top: 1vh;
-}
-
-.numberCounter{
+    position: absolute;
+    top: 1vh;
+    left: 3vh;
+  }
+  .marksTwo {
+    display: inline;
     float: left;
-    margin-top: 5vh;
-    position: relative;
-    right:1vh;
-}
-
-.numberTwo{
-    display: none;
-}
-
-.numberCounterTwo{
-    display: none;
-}
-
-@media(max-width:1150px){
-    .containerTwo{
-     display: none;
-    }
-
-    .scrollbarButton{
-    display: none;
-    }
-
-    .containerThree{
-        width: 100%;
-        height: 30vh;
-        background: rgb(51,51,51) ;
-        position: absolute;
-        bottom: 0;
-        transform: translateY(30vh);
-        overflow: scroll;
-    }
-
-    .scrollbarButtonTwo
-    {
-        display: block;
-        float: left;
-        width: 11vh;
-        height:11vh;
-        border-radius: 100%;
-        top: -25vh;
-    }
-    .marksTwo{
-        display:inline;
-        float: left;
-        position:absolute;
-        left:25%;
-        margin-top: 6vh;
-    }
-    .differenceTwo{
-        display: inline;
-        float: right;
-        position:absolute;
-        right:20%;
-        margin-top: 6vh;
-
-    }
-    .marksTextTwo{
-        float: left;
-        display: inline;
-        position: absolute;
-        left: 25%;
-        padding-bottom:5vh;
-    
-    }
-
-    .differenceTextTwo{
-        float: right;
-        display: inline;
-        position: absolute;
-        right: 18%;
-    }
-
-    .numberTwo{
-        margin-top: 1vh;
-        display: inline;
-        float: left;
-        position: relative;
-        margin-left: 5vh;
-    }
-
-    .numberCounterTwo{
-        display: inline;
-        float: left;
-        margin-top: 6vh;
-        position: relative;
-        right: 2vh;
-    }
-}
-
-::-webkit-scrollbar{
-    background: rgb(51,51,51);
-    width: 10px;
-    height: 0;
-}
-
-::-webkit-scrollbar-thumb{
-    background: white;
-    border-radius: 10px;
-}
-
-.marksText{
-    float: left;
-    margin-left: 8vh;
-    margin-bottom: 1vh;
-
-
-}
-
-.differenceText{
+    position: absolute;
+    left: 25%;
+    margin-top: 6vh;
+  }
+  .differenceTwo {
+    display: inline;
     float: right;
-    margin-right: 2vh;
-    margin-bottom: 1vh;
+    position: absolute;
+    right: 20%;
+    margin-top: 6vh;
+  }
+  .marksTextTwo {
+    float: left;
+    display: inline;
+    position: absolute;
+    left: 25%;
+    padding-bottom: 5vh;
+  }
+
+  .differenceTextTwo {
+    float: right;
+    display: inline;
+    position: absolute;
+    right: 18%;
+  }
+
+  .numberTwo {
+    margin-top: 1vh;
+    display: inline;
+    float: left;
+    position: relative;
+    margin-left: 5vh;
+  }
+
+  .numberCounterTwo {
+    display: inline;
+    float: left;
+    margin-top: 6vh;
+    position: relative;
+    right: 2vh;
+  }
 }
 
-.number{
-margin-left:5px;
+::-webkit-scrollbar {
+  background: rgb(51, 51, 51);
+  width: 10px;
+  height: 0;
 }
 
-.numberCounter{
+::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 10px;
+}
 
+.marksText {
+  float: left;
+  margin-left: 8vh;
+  margin-bottom: 1vh;
+}
+
+.differenceText {
+  float: right;
+  margin-right: 2vh;
+  margin-bottom: 1vh;
+}
+
+.number {
+  margin-left: 5px;
+}
+
+.numberCounter {
+}
+
+@media only screen and (max-width: 500px) {
+  body {
+    display: none;
+  }
 }
