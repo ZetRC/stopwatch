@@ -185,24 +185,17 @@ let booleanTwo = false;
 scrollbarButton.addEventListener("click", function () {
   booleanTwo = !booleanTwo;
   if (booleanTwo === true) {
-    /*   scrollbarButton.animate([
-    {transform:'translate(50vh)'}
-  ],{
-    duration:100,
-    fill:("forwards")
-  })
+    scrollbarButton.animate([{ transform: "translate(50vh)" }], {
+      duration: 100,
+      fill: "forwards",
+    });
 
-  containerTwo.animate([
-    { transform: 'translate(0)' }, 
-    
-  ], { 
-    duration: 100,
-    fill:("forwards")
-  }); */
-
-    containerTwo.style.transform = "translate(0)";
+    containerTwo.animate([{ transform: "translate(0)" }], {
+      duration: 100,
+      fill: "forwards",
+    });
   } else if (booleanTwo === false) {
-    /*     scrollbarButton.animate([{ transform: "translate(0)" }], {
+    scrollbarButton.animate([{ transform: "translate(0)" }], {
       duration: 100,
       fill: "forwards",
     });
@@ -210,8 +203,7 @@ scrollbarButton.addEventListener("click", function () {
     containerTwo.animate([{ transform: "translate(-50vh)" }], {
       duration: 100,
       fill: "forwards",
-    }); */
-    containerTwo.style.transform = "translate(-100vh)";
+    });
   }
 });
 
