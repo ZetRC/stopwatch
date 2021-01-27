@@ -1,0 +1,61 @@
+@font-face {
+  font-family: "digital-clock-font";
+  src: url("../fonts/digital-7/digital-7.ttf");
+}
+body {
+  background: #000000;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+.stopwatch-cont {
+  display: flex;
+  flex-flow: column;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.stopwatch-cont .stopwatch {
+  font-size: 8rem;
+  font-family: "digital-clock-font";
+}
+.stopwatch-cont .stopwatch .time {
+  display: flex;
+}
+.stopwatch-cont .stopwatch .time .timeUnit {
+  margin: 0 10px;
+}
+
+.buttons-cont {
+  margin-top: 1rem;
+  width: 30rem;
+  display: flex;
+  justify-content: space-around;
+}
+.buttons-cont button {
+  width: 10rem;
+  height: 3rem;
+  font-size: 1.2rem;
+  font-family: "digital-clock-font";
+  background: none;
+  color: #ffffff;
+  border: 2px solid #cccccc;
+  outline: none;
+  cursor: pointer;
+}
+
+.data-cont {
+  display: flex;
+  width: 30rem;
+  justify-content: space-around;
+}
+
+.scrollbarButton {
+  position: absolute;
+  display: none;
+}
+
+/*# sourceMappingURL=layout.css.map */

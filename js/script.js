@@ -1,22 +1,13 @@
-let markTextTwo = document.querySelector(".markTextTwo");
-let time = document.querySelector(".time");
 let startButton = document.querySelector(".startButton");
 let restartButton = document.querySelector(".restartButton");
 let stopAndGetButton = document.querySelector(".stopAndGetButton");
 let scrollbarButton = document.querySelector(".scrollbarButton");
-let scrollbarButtonTwo = document.querySelector(".scrollbarButtonTwo");
-let containerThree = document.querySelector(".containerThree");
 let marks = document.querySelector(".marks");
-let marksTwo = document.querySelector(".marksTwo");
-let containerTwo = document.querySelector(".containerTwo");
+
 let initialMiliseconds = 0;
 let initialSeconds = 0;
 let initialMinutes = 0;
 let initialHours = 0;
-let miliseconds = 0;
-let seconds = 0;
-let minutes = 0;
-let hours = 0;
 let boolean = true;
 let i = 0;
 let array = [""];
@@ -26,69 +17,52 @@ startButton.addEventListener(
   function () {
     boolean = !boolean;
     let intervalOne = setInterval(() => {
-      getCorrectTimeUnits();
+      initStopWatch();
       if (boolean === true) {
         clearInterval(intervalOne);
         startButton.innerHTML = "resume";
       } else {
         startButton.innerHTML = "pause";
       }
-      time.innerHTML =
-        hours + ":" + minutes + ":" + seconds + ":" + miliseconds;
+        document.getElementById("hours").innerHTML=("0" + initialHours).slice(-2)
+        document.getElementById("minutes").innerHTML=("0"+ initialMinutes).slice(-2)
+        document.getElementById("seconds").innerHTML=("0" + initialSeconds).slice(-2)
+        document.getElementById("miliseconds").innerHTML=("0"+initialMiliseconds).slice(-2)
     }, 10);
-  } /* {once:true} */
+    
+    let initStopWatch = function () {
+      initialMiliseconds += 1;
+      if (initialMiliseconds >= 100) {
+        initialSeconds++;
+        initialMiliseconds = 0;
+      }
+      if (initialSeconds >= 60) {
+        initialMinutes++;
+        initialSeconds = 0;
+      }
+      if (initialMinutes >= 60) {
+        initialHours++;
+        initialMinutes = 0;
+      }
+    };
+  }
 );
 
-let getCorrectTimeUnits = function () {
-  initialMiliseconds += 1;
-  if (initialMiliseconds >= 100) {
-    initialSeconds++;
-    initialMiliseconds = 0;
-  }
 
-  if (initialMiliseconds < 10) {
-    miliseconds = "0" + initialMiliseconds;
-  } else {
-    miliseconds = initialMiliseconds;
-  }
+var restartStopwatch=(()=>{
+  restartButton.addEventListener("click", function () {
+    window.location.reload();
+  });
+})
 
-  if (initialSeconds >= 60) {
-    initialMinutes++;
-    initialSeconds = 0;
-  }
+restartStopwatch()
 
-  if (initialSeconds < 10) {
-    seconds = "0" + initialSeconds;
-  } else {
-    seconds = initialSeconds;
-  }
-
-  if (initialMinutes >= 60) {
-    initialHours++;
-    initialMinutes = 0;
-  }
-
-  if (initialMinutes < 10) {
-    minutes = "0" + initialMinutes;
-  } else {
-    minutes = initialMinutes;
-  }
-
-  if (initialHours < 10) {
-    hours = "0" + initialHours;
-  } else {
-    hours = initialHours;
-  }
-};
-
-restartButton.addEventListener("click", function () {
-  window.location.reload();
-});
+//generates info
 
 let numberCounter = document.querySelector(".numberCounter");
-let numberCounterTwo = document.querySelector(".numberCounterTwo");
+/* let numberCounterTwo = document.querySelector(".numberCounterTwo"); */
 let marksDifference = document.querySelector(".marksDifference");
-let differenceTwo = document.querySelector(".differenceTwo");
+/* let differenceTwo = document.querySelector(".differenceTwo"); */
 let hoursArray = [0];
 let minutesArray = [0];
 let secondsArray = [0];
@@ -174,51 +148,5 @@ stopAndGetButton.addEventListener("click", function () {
   numberCounter.innerHTML = markerPositionArray.join("");
   numberCounterTwo.innerHTML = markerPositionArray.join("");
 
-  /* 
-  console.log(hoursDifference+":"+minutesDifference+":"+secondsDifference+":"+milisecondsDifference)
-  differenceText.innerHTML=hoursDifference+":"+minutesDifference+":"+secondsDifference+":"+milisecondsDifference
-  differenceTextTwo.innerHTML=hoursDifference+":"+minutesDifference+":"+secondsDifference+":"+milisecondsDifference */
-});
 
-let booleanTwo = false;
-
-scrollbarButton.addEventListener("click", function () {
-  booleanTwo = !booleanTwo;
-  if (booleanTwo === true) {
-    scrollbarButton.animate([{ transform: "translate(50vh)" }], {
-      duration: 100,
-      fill: "forwards",
-    });
-
-    containerTwo.animate([{ transform: "translate(0)" }], {
-      duration: 100,
-      fill: "forwards",
-    });
-  } else if (booleanTwo === false) {
-    scrollbarButton.animate([{ transform: "translate(0)" }], {
-      duration: 100,
-      fill: "forwards",
-    });
-
-    containerTwo.animate([{ transform: "translate(-50vh)" }], {
-      duration: 100,
-      fill: "forwards",
-    });
-  }
-});
-
-let booleanThree = false;
-scrollbarButtonTwo.addEventListener("click", function () {
-  booleanThree = !booleanThree;
-  if (booleanThree === true) {
-    containerThree.animate([{ transform: "translateY(0)" }], {
-      duration: 100,
-      fill: "forwards",
-    });
-  } else {
-    containerThree.animate([{ transform: "translateY(30vh)" }], {
-      duration: 100,
-      fill: "forwards",
-    });
-  }
 });
