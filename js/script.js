@@ -9,44 +9,51 @@ let initialSeconds = 0;
 let initialMinutes = 0;
 let initialHours = 0;
 let boolean = true;
+
 let i = 0;
 let array = [""];
 
-startButton.addEventListener(
-  "click",
-  function () {
-    boolean = !boolean;
-    let intervalOne = setInterval(() => {
-      initStopWatch();
-      if (boolean === true) {
-        clearInterval(intervalOne);
-        startButton.innerHTML = "resume";
-      } else {
-        startButton.innerHTML = "pause";
-      }
+let startAndStopStopwatch=(()=>{
+  startButton.addEventListener(
+    "click",
+    function () {
+      boolean = !boolean;
+      let intervalOne = setInterval(() => {
+        initStopWatch();
+  
+        if (boolean === true) {
+          clearInterval(intervalOne);
+          startButton.innerHTML = "resume";
+        } else {
+          startButton.innerHTML = "pause";
+        }
+        
+      }, 10);
+      
+      let initStopWatch = function () {
+        initialMiliseconds += 1;
+        if (initialMiliseconds >= 100) {
+          initialSeconds++;
+          initialMiliseconds = 0;
+        }
+        if (initialSeconds >= 60) {
+          initialMinutes++;
+          initialSeconds = 0;
+        }
+        if (initialMinutes >= 60) {
+          initialHours++;
+          initialMinutes = 0;
+        }
+        
         document.getElementById("hours").innerHTML=("0" + initialHours).slice(-2)
         document.getElementById("minutes").innerHTML=("0"+ initialMinutes).slice(-2)
         document.getElementById("seconds").innerHTML=("0" + initialSeconds).slice(-2)
         document.getElementById("miliseconds").innerHTML=("0"+initialMiliseconds).slice(-2)
-    }, 10);
-    
-    let initStopWatch = function () {
-      initialMiliseconds += 1;
-      if (initialMiliseconds >= 100) {
-        initialSeconds++;
-        initialMiliseconds = 0;
-      }
-      if (initialSeconds >= 60) {
-        initialMinutes++;
-        initialSeconds = 0;
-      }
-      if (initialMinutes >= 60) {
-        initialHours++;
-        initialMinutes = 0;
-      }
-    };
-  }
-);
+      };
+      
+    }
+  );
+})
 
 
 var restartStopwatch=(()=>{
@@ -55,18 +62,18 @@ var restartStopwatch=(()=>{
   });
 })
 
+startAndStopStopwatch()
 restartStopwatch()
 
 //generates info
 
 let numberCounter = document.querySelector(".numberCounter");
-/* let numberCounterTwo = document.querySelector(".numberCounterTwo"); */
 let marksDifference = document.querySelector(".marksDifference");
-/* let differenceTwo = document.querySelector(".differenceTwo"); */
 let hoursArray = [0];
 let minutesArray = [0];
 let secondsArray = [0];
 let milisecondsArray = [0];
+
 let differenceArray = [];
 let d = 0;
 let milisecondsDifferenceTwo = 0;
@@ -77,10 +84,9 @@ let markerPosition = 0;
 let markerPositionArray = [];
 
 stopAndGetButton.addEventListener("click", function () {
-  let hello = hours + ":" + minutes + ":" + seconds + ":" + miliseconds;
-  array.unshift("<h3>" + hello + "</h3><br>");
+  let hello = ("0"+initialHours).slice(-2) + ":" +("0"+initialMinutes).slice(-2) + ":" +("0"+initialSeconds).slice(-2) +":"+("0"+initialMiliseconds).slice(-2);
+  array.unshift("<h3>" + hello + "</h3>");
   marks.innerHTML = array.join("");
-  marksTwo.innerHTML = array.join("");
 
   d++;
   milisecondsArray.push(initialMiliseconds);
@@ -92,11 +98,8 @@ stopAndGetButton.addEventListener("click", function () {
   let secondsDifference = secondsArray[d] - secondsArray[d - 1];
   let minutesDifference = minutesArray[d] - minutesArray[d - 1];
   let hoursDifference = hoursArray[d] - hoursArray[d - 1];
-  let milisecondsDifferenceTwo = 0;
-  let secondsDifferenceTwo = 0;
-  let minutesDifferenceTwo = 0;
-  let hoursDifferenceTwo = 0;
 
+  
   if (milisecondsDifference < 0) {
     secondsDifference--;
     milisecondsDifference += 100;
@@ -107,46 +110,16 @@ stopAndGetButton.addEventListener("click", function () {
     hoursDifference--;
     minutesDifference += 60;
   }
+  
+  let timeDifference=("0"+hoursDifference).slice(-2)+":"+("0" + minutesDifference).slice(-2)+":"+("0"+secondsDifference).slice(-2)+":"+("0"+milisecondsDifference).slice(-2)
 
-  if (milisecondsDifference < 10) {
-    milisecondsDifferenceTwo = "0" + secondsDifference;
-  } else {
-    milisecondsDifferenceTwo = milisecondsDifference;
-  }
-
-  if (secondsDifference < 10) {
-    secondsDifferenceTwo = "0" + secondsDifference;
-  } else {
-    secondsDifferenceTwo = secondsDifference;
-  }
-
-  if (minutesDifference < 10) {
-    minutesDifferenceTwo = "0" + minutesDifference;
-  } else {
-    minutesDifferenceTwo = minutesDifference;
-  }
-
-  if (hoursDifference < 10) {
-    hoursDifferenceTwo = "0" + hoursDifference;
-  } else {
-    hoursDifferenceTwo = hoursDifference;
-  }
-
-  let difference =
-    hoursDifferenceTwo +
-    ":" +
-    minutesDifferenceTwo +
-    ":" +
-    secondsDifferenceTwo +
-    ":" +
-    milisecondsDifferenceTwo;
-  differenceArray.unshift("<h3>" + difference + "</h3><br>");
+  differenceArray.unshift("<h3>"+timeDifference+"</h3>")
   marksDifference.innerHTML = differenceArray.join("");
-  differenceTwo.innerHTML = differenceArray.join("");
   markerPosition++;
-  markerPositionArray.unshift("<h3>" + markerPosition + "</h3><br>");
+  markerPositionArray.unshift("<h3>" + markerPosition + "</h3>");
   numberCounter.innerHTML = markerPositionArray.join("");
-  numberCounterTwo.innerHTML = markerPositionArray.join("");
-
+  
+  console.log(differenceArray)
+  console.log(timeDifference)
 
 });

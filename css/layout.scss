@@ -14,8 +14,8 @@ body{
     display: flex;
     flex-flow:column;
     width: 100vw;
-    height: 100vh;
-    justify-content:center;
+    height: 55vh;
+    justify-content:flex-end;
     align-items: center;
     align-content: center;
     .stopwatch{
@@ -23,8 +23,10 @@ body{
         font-family:'digital-clock-font';
         .time{
             display: flex;
+            justify-content: space-around;
             .timeUnit{
-                margin: 0 10px;
+                width: 8rem;
+                text-align: center;
             }
         }
     }
@@ -53,9 +55,21 @@ body{
     display: flex;
     width: 30rem;
     justify-content: space-around;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 1rem;
 }
 
 .scrollbarButton{
     position: absolute;
     display: none;
+}
+
+@media(max-width:768px){
+    .stopwatch{
+        font-size: 12rem;
+        .timeUnit{
+            width:12rem;
+        }
+    }
 }
