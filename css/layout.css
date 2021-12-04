@@ -10,6 +10,7 @@ body {
   display:grid;
   align-items:center;
   min-height:100vh;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .stopwatch-cont {
@@ -19,6 +20,9 @@ body {
   justify-content: flex-end;
   align-items: center;
   align-content: center;
+  padding:0 2rem;
+  box-sizing:border-box;
+
 }
 .stopwatch-cont .stopwatch {
   font-size: 8rem;
@@ -33,12 +37,10 @@ body {
   text-align: center;
 }
 
-/* .buttons-cont {
+.buttons-cont {
   margin-top: 1rem;
-  width: 30rem;
   display: flex;
-  justify-content: space-around;
-} */
+}
 
 .buttons-cont button {
   width: 10rem;
@@ -50,15 +52,19 @@ body {
   border: 2px solid #cccccc;
   outline: none;
   cursor: pointer;
+  margin:0 3px;
 }
 
 .data-cont {
   display: flex;
-  width: 30rem;
   justify-content: space-around;
   text-align: center;
   margin: 0 auto;
   margin-top: 1rem;
+}
+
+.data-cont div{
+  margin:1rem 
 }
 
 .scrollbarButton {
@@ -67,11 +73,27 @@ body {
 }
 
 @media (max-width: 768px) {
-  .stopwatch {
-    font-size: 12rem;
+  .stopwatch-cont .stopwatch .time .timeUnit{
+    width: 4rem;
   }
+
+  .stopwatch {
+    font-size: 4rem !important;
+  }
+
   .stopwatch .timeUnit {
     width: 12rem;
+  }
+
+  .buttons-cont button{
+    width: 6rem;
+  }
+
+
+  .data-cont button,
+  .data-cont span,
+  .data-cont h2{
+    font-size: 1rem !important;
   }
 }
 
