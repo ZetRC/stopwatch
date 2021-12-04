@@ -7,13 +7,14 @@ body {
   color: #ffffff;
   margin: 0;
   padding: 0;
+  display:grid;
+  min-height:100vh;
 }
 
 .stopwatch-cont {
   display: flex;
   flex-flow: column;
   width: 100vw;
-  height: 55vh;
   justify-content: flex-end;
   align-items: center;
   align-content: center;
@@ -31,12 +32,13 @@ body {
   text-align: center;
 }
 
-.buttons-cont {
+/* .buttons-cont {
   margin-top: 1rem;
   width: 30rem;
   display: flex;
   justify-content: space-around;
-}
+} */
+
 .buttons-cont button {
   width: 10rem;
   height: 3rem;
